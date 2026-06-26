@@ -30,7 +30,7 @@ Uses **MECCHA CHAMELEON** as the worked example, but the method works for most W
 ## 步驟 1️⃣：一鍵安裝環境（Rosetta + Homebrew + Sikarugir）
 打開「**終端機**（Terminal）」，貼上：
 ```bash
-curl -fsSL https://raw.githubusercontent.com/nothinglo/meccha-chameleon-mac/main/setup.sh -o setup.sh
+curl -fsSL https://gist.githubusercontent.com/nothinglo/45eea044c3bb8fc2b6ab972e696180ac/raw/setup-meccha.sh -o setup.sh
 bash setup.sh
 ```
 - 約需 **10–15 分鐘**，過程只會在一開始問你一次開機密碼。
@@ -60,7 +60,7 @@ bash setup.sh
 **先補字型再裝 Steam**，這樣連 Steam 安裝畫面與遊戲內中文都不會變方框 □□。
 回終端機跑：
 ```bash
-curl -fsSL https://raw.githubusercontent.com/nothinglo/meccha-chameleon-mac/main/fix-fonts.sh -o fix-fonts.sh && bash fix-fonts.sh
+curl -fsSL https://gist.githubusercontent.com/nothinglo/45eea044c3bb8fc2b6ab972e696180ac/raw/fix-fonts.sh -o fix-fonts.sh && bash fix-fonts.sh
 ```
 它會自動把 Windows 中文字型對應到 macOS 內建繁中字型，套用到你建立的 wrapper。
 
@@ -133,7 +133,7 @@ Run Windows-only Steam games on an **Apple Silicon Mac (M-series)** with **100% 
 ## Step 1️⃣: One-shot environment setup (Rosetta + Homebrew + Sikarugir)
 Open **Terminal** and paste:
 ```bash
-curl -fsSL https://raw.githubusercontent.com/nothinglo/meccha-chameleon-mac/main/setup.sh -o setup.sh
+curl -fsSL https://gist.githubusercontent.com/nothinglo/45eea044c3bb8fc2b6ab972e696180ac/raw/setup-meccha.sh -o setup.sh
 bash setup.sh
 ```
 - Takes about **10–15 minutes**; it asks for your login password once at the start.
@@ -163,7 +163,7 @@ A **Configure** window opens → tick **"DirectX to Metal translation layer — 
 **Add fonts before installing Steam** so even the Steam installer and in-game CJK text don't show as □□.
 In Terminal:
 ```bash
-curl -fsSL https://raw.githubusercontent.com/nothinglo/meccha-chameleon-mac/main/fix-fonts.sh -o fix-fonts.sh && bash fix-fonts.sh
+curl -fsSL https://gist.githubusercontent.com/nothinglo/45eea044c3bb8fc2b6ab972e696180ac/raw/fix-fonts.sh -o fix-fonts.sh && bash fix-fonts.sh
 ```
 It maps Windows CJK font names to macOS built-in fonts in your wrapper.
 
