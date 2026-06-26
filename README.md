@@ -33,14 +33,13 @@ Uses **MECCHA CHAMELEON** as the worked example, but the method works for most W
 curl -fsSL https://raw.githubusercontent.com/nothinglo/meccha-chameleon-mac/main/setup.sh -o setup.sh
 bash setup.sh
 ```
-- 過程會要你**按 Return、輸入開機密碼**（安裝 Homebrew 用），都是正常現象。
-- 腳本只安裝工具（Rosetta 2 / Homebrew / Sikarugir Creator），**不會碰你的個人檔案**，可重複執行。
-- 不放心可以先打開 [`setup.sh`](setup.sh) 看內容。
-
-> 已經有 Homebrew 的人，腳本會自動跳過、只補裝缺的部分。
+- 約需 **10–15 分鐘**，過程只會在一開始問你一次開機密碼。
+- 腳本只安裝工具（Rosetta 2 / Homebrew / Sikarugir Creator）+ 順便下載 Steam 安裝檔，**不會碰你的個人檔案**，可重複執行。
+- 不放心可先打開 [`setup.sh`](setup.sh) 看內容。
+- 裝完會自動開啟 **Sikarugir Creator** 與 Finder。
 
 ## 步驟 2️⃣：建立遊戲 wrapper
-打開「**Sikarugir Creator**」（在啟動台 / `~/Applications`）：
+在 **Sikarugir Creator**：
 1. 按 **Download Template**
 2. 按 **Change** 選引擎 → **務必選 `WS12WineSikarugir10.0`**（Wine 10）
 3. 按 **Create** → 命名（例如 `MeccaChameleon`）
@@ -57,45 +56,47 @@ bash setup.sh
 
 ![勾選 DXMT](screenshots/02-dxmt.png)
 
-## 步驟 4️⃣：安裝 Steam
+## 步驟 4️⃣：補中文字型（先做，安裝畫面才有中文）
+**先補字型再裝 Steam**，這樣連 Steam 安裝畫面與遊戲內中文都不會變方框 □□。
+回終端機跑：
+```bash
+curl -fsSL https://raw.githubusercontent.com/nothinglo/meccha-chameleon-mac/main/fix-fonts.sh -o fix-fonts.sh && bash fix-fonts.sh
+```
+它會自動把 Windows 中文字型對應到 macOS 內建繁中字型，套用到你建立的 wrapper。
+
+## 步驟 5️⃣：安裝 Steam
 步驟 1 的腳本已把 `SteamSetup.exe` 下載到 `~/Downloads`。
 1. 在 Configure 視窗按 **Install Software** → 選 `~/Downloads/SteamSetup.exe`
-2. Steam 安裝視窗會出現，**一路按「下一步 / 確定」用預設值即可**（不用改任何設定）
-3. ⚠️ 若沒看到安裝視窗，**點一下右下角 / 選單列的 wine 🍷 酒杯圖示**，視窗就會跳出來
-4. 裝完後**過幾分鐘 Steam 會自動打開**（若它問你要選哪個主程式，就選 `Steam.exe`）
+2. ⚠️ **點一下右下角 / Dock 的「藍底 wine 圖示」**（**不是酒杯**！酒杯是 Configure），Steam 安裝視窗才會跳出來
+3. 安裝視窗出現後就能操作，**一路按「下一步 / 確定」用預設值即可**（不用改任何設定）。此時 Configure 視窗可能顯示 **busy**，正常。
+4. 裝完後**過幾分鐘 Steam 會自動打開**
 
 > 若 `~/Downloads` 沒有 SteamSetup.exe，可自行到 [store.steampowered.com](https://store.steampowered.com/about/) 下載。
 
-## 步驟 5️⃣：登入 Steam、安裝遊戲、補中文字型
+![安裝 Steam](screenshots/03-steam.png)
+
+## 步驟 6️⃣：登入 Steam、安裝遊戲
 Steam 已在上一步自動打開（**不需要再做 Test Run**）：
 1. **登入**你的 Steam 帳號
 2. 在媒體庫**安裝你的遊戲**（例如 MECCHA CHAMELEON）
-3. **（重要）補中文字型** — 不然遊戲內中文會變方框 □□。先把遊戲/Steam **完全關閉**，再回終端機跑：
-   ```bash
-   curl -fsSL https://gist.githubusercontent.com/nothinglo/45eea044c3bb8fc2b6ab972e696180ac/raw/fix-fonts.sh -o fix-fonts.sh && bash fix-fonts.sh
-   ```
-   它會自動把 Windows 中文字型對應到 macOS 內建繁中字型，套用到你的 wrapper。
 
 > 之後若點 wrapper 沒自動開 Steam，到 Configuration 把「Windows app」設成 `Steam.exe` 即可。
 
-![Steam 登入](screenshots/03-steam.png)
-
-## 步驟 6️⃣：設定啟動參數（視遊戲而定）
-有些遊戲的「啟動器」會擋你（例如跳出「需要 Visual C++」之類的錯誤）。解法是讓 Steam **直接啟動遊戲本體**，跳過啟動器：
-
-遊戲上 **右鍵 → 內容（Properties）→ 啟動選項（Launch Options）**，填入指向該遊戲 **Shipping/主執行檔** 的路徑，例如 MECCHA CHAMELEON：
+## 步驟 7️⃣：設定啟動參數（視遊戲而定）
+有些遊戲的啟動器會擋你（例如跳「需要 Visual C++」）。解法是讓 Steam **直接啟動遊戲本體**：
+遊戲 **右鍵 → 內容 → 啟動選項**，填入指向該遊戲 **Shipping/主執行檔** 的路徑，例如 MECCHA CHAMELEON：
 ```
 "C:\Program Files (x86)\Steam\steamapps\common\MECCHA CHAMELEON\Chameleon\Binaries\Win64\PenguinHotel-Win64-Shipping.exe" %command%
 ```
 > 路徑依遊戲不同，請到 `steamapps\common\<遊戲>\...\Binaries\Win64\` 找到真正的 `*-Shipping.exe`。不是每款都需要這步——先直接玩，遇到啟動器擋人再設。
 
-## 步驟 7️⃣：開玩 🎉
+## 步驟 8️⃣：開玩 🎉
 從 **Steam 按 Play** 啟動遊戲。
-> ⚠️ **務必從 Steam 啟動**。直接跑 exe 會出現 `invalid or missing authentication token`（Steam 沒在跑、拿不到授權）。
-
-![遊戲畫面](screenshots/04-ingame.png)
+> ⚠️ **務必從 Steam 啟動**。直接跑 exe 會出現 `invalid or missing authentication token`。
 
 **以後要玩**：點兩下 wrapper 的 `.app`（在 `~/Applications/Sikarugir/`）→ Steam → Play。
+
+![遊戲畫面](screenshots/04-ingame.png)
 
 ## 🛠 疑難排解 FAQ
 | 問題 | 解法 |
@@ -103,8 +104,8 @@ Steam 已在上一步自動打開（**不需要再做 Test Run**）：
 | 點 wrapper 沒反應 | 先到「活動監視器」關掉殘留的 `steam` / `wine` 程序再開 |
 | 3D 主畫面全黑、只剩選單/HUD | 你用到 DXVK 了 → 改用 **DXMT** |
 | `invalid / missing authentication token` | 一定要**從 Steam 按 Play** 啟動，不能直接跑 exe |
-| 跳「需要 Visual C++ / 找不到元件」 | 用步驟 6 的**啟動參數**直接指向 Shipping exe |
-| 遊戲內中文變 □□ | 跑步驟 5 的 `fix-fonts.sh`（補中文字型）|
+| 跳「需要 Visual C++ / 找不到元件」 | 用步驟 7 的**啟動參數**直接指向 Shipping exe |
+| 中文變 □□ | 跑步驟 4 的 `fix-fonts.sh`（補中文字型）|
 | 反作弊遊戲打不開 | 目前無解（EAC/BattlEye 跑不了）|
 
 ---
@@ -120,9 +121,9 @@ Run Windows-only Steam games on an **Apple Silicon Mac (M-series)** with **100% 
 |---|---|
 | ✅ Works for | Most single-player / casual-multiplayer Windows Steam games (DirectX 11 / 12) |
 | ❌ Won't work | Games with **anti-cheat** (EAC, BattlEye, etc. generally won't run) |
-| ⚠️ Note | Each game's compatibility, performance, and settings (especially **launch options**) can differ and may need tweaking |
+| ⚠️ Note | Each game's compatibility, performance, and settings (especially **launch options**) can differ |
 
-> This isn't magic that runs every game — it's a solid "worth a try" method. MECCHA CHAMELEON is a verified working example.
+> Not magic that runs every game — a solid "worth a try" method. MECCHA CHAMELEON is a verified working example.
 
 ## Requirements
 - Apple Silicon Mac (M1/M2/M3/M4/M5…)
@@ -135,70 +136,70 @@ Open **Terminal** and paste:
 curl -fsSL https://raw.githubusercontent.com/nothinglo/meccha-chameleon-mac/main/setup.sh -o setup.sh
 bash setup.sh
 ```
-- It will ask you to press Return and enter your login password (for installing Homebrew) — that's normal.
-- The script only installs tools (Rosetta 2 / Homebrew / Sikarugir Creator); it **does not touch your personal files** and is safe to re-run.
-- Feel free to read [`setup.sh`](setup.sh) first.
-
-> If you already have Homebrew, the script skips it and only installs what's missing.
+- Takes about **10–15 minutes**; it asks for your login password once at the start.
+- Installs only tools (Rosetta 2 / Homebrew / Sikarugir Creator) and downloads the Steam installer; it **doesn't touch your personal files** and is safe to re-run.
+- Read [`setup.sh`](setup.sh) first if you like.
+- It auto-opens **Sikarugir Creator** and Finder when done.
 
 ## Step 2️⃣: Create the game wrapper
-Open **Sikarugir Creator** (Launchpad / `~/Applications`):
+In **Sikarugir Creator**:
 1. Click **Download Template**
-2. Click **Change** to pick an engine → **be sure to choose `WS12WineSikarugir10.0`** (Wine 10)
+2. Click **Change** → **choose `WS12WineSikarugir10.0`** (Wine 10)
 3. Click **Create** → name it (e.g. `MeccaChameleon`)
 
-> ⏱ After you click Create, building the wrapper takes **about 5 minutes** (the UI will spin) — be patient.
+> ⏱ After Create, building the wrapper takes **~5 minutes** (the UI spins) — be patient.
 > ⚠️ **You must pick Wine 10.** Older engines (e.g. GPTK's Wine 7.7) can't run the current Steam login UI.
 
 ![Create wrapper](screenshots/01-create.png)
 
 ## Step 3️⃣: Enable DXMT (the key to graphics!)
-After creating, a **Configure** window opens → tick
-**"DirectX to Metal translation layer — (DXMT)"**
+A **Configure** window opens → tick **"DirectX to Metal translation layer — (DXMT)"**
 
-> ⚠️ **Use DXMT, NOT DXVK.** DXVK goes through MoltenVK and many Unreal Engine games render a **black** 3D scene (only the menu shows). DXMT is native Metal and renders correctly.
+> ⚠️ **Use DXMT, NOT DXVK.** DXVK (via MoltenVK) renders a **black** 3D scene for many Unreal games (only the menu shows). DXMT is native Metal and renders correctly.
 
 ![Enable DXMT](screenshots/02-dxmt.png)
 
-## Step 4️⃣: Install Steam
+## Step 4️⃣: Add CJK fonts (do this first, so installer text shows correctly)
+**Add fonts before installing Steam** so even the Steam installer and in-game CJK text don't show as □□.
+In Terminal:
+```bash
+curl -fsSL https://raw.githubusercontent.com/nothinglo/meccha-chameleon-mac/main/fix-fonts.sh -o fix-fonts.sh && bash fix-fonts.sh
+```
+It maps Windows CJK font names to macOS built-in fonts in your wrapper.
+
+## Step 5️⃣: Install Steam
 The Step 1 script already downloaded `SteamSetup.exe` to `~/Downloads`.
 1. In the Configure window click **Install Software** → pick `~/Downloads/SteamSetup.exe`
-2. The Steam installer window appears — **just click Next / OK through the defaults** (no settings to change)
-3. ⚠️ If you don't see the installer window, **click the wine 🍷 glass icon in the Dock / menu bar** and it'll pop up
-4. After it finishes, **Steam opens by itself in a few minutes** (if it asks which executable to use, pick `Steam.exe`)
+2. ⚠️ **Click the blue wine icon in the Dock / menu bar** (**not** the wine-glass — that's Configure) to bring up the Steam installer window
+3. Once it appears, **click Next / OK through the defaults** (nothing to change). The Configure window may show **busy** — that's normal.
+4. After it finishes, **Steam opens by itself in a few minutes**
 
 > If `~/Downloads` has no SteamSetup.exe, grab it from [store.steampowered.com](https://store.steampowered.com/about/).
 
-## Step 5️⃣: Log in, install the game, add CJK fonts
+![Install Steam](screenshots/03-steam.png)
+
+## Step 6️⃣: Log in, install the game
 Steam already opened in the previous step (**no Test Run needed**):
 1. **Log in** to your Steam account
 2. **Install your game** from the library (e.g. MECCHA CHAMELEON)
-3. **(Important) Add CJK fonts** — otherwise in-game CJK text shows as □□. Fully quit the game/Steam first, then run in Terminal:
-   ```bash
-   curl -fsSL https://gist.githubusercontent.com/nothinglo/45eea044c3bb8fc2b6ab972e696180ac/raw/fix-fonts.sh -o fix-fonts.sh && bash fix-fonts.sh
-   ```
-   It maps Windows CJK font names to macOS built-in fonts in your wrapper.
 
 > If double-clicking the wrapper later doesn't open Steam, set "Windows app" to `Steam.exe` in Configuration.
 
-![Steam login](screenshots/03-steam.png)
-
-## Step 6️⃣: Set launch options (game-dependent)
-Some games have a launcher that blocks you (e.g. a "Visual C++ required" error). The fix is to make Steam **launch the game's main executable directly**, skipping the launcher:
-
-Right-click the game → **Properties → Launch Options**, and point it at the game's **Shipping/main exe**, e.g. for MECCHA CHAMELEON:
+## Step 7️⃣: Set launch options (game-dependent)
+Some games' launchers block you (e.g. "Visual C++ required"). Fix: make Steam **launch the game's main exe directly**.
+Right-click the game → **Properties → Launch Options**, point it at the game's **Shipping/main exe**, e.g. for MECCHA CHAMELEON:
 ```
 "C:\Program Files (x86)\Steam\steamapps\common\MECCHA CHAMELEON\Chameleon\Binaries\Win64\PenguinHotel-Win64-Shipping.exe" %command%
 ```
-> The path differs per game — look under `steamapps\common\<game>\...\Binaries\Win64\` for the real `*-Shipping.exe`. Not every game needs this — try playing first, set it only if a launcher blocks you.
+> Path differs per game — look under `steamapps\common\<game>\...\Binaries\Win64\` for the real `*-Shipping.exe`. Not every game needs this.
 
-## Step 7️⃣: Play 🎉
-Launch the game with **Play in Steam**.
-> ⚠️ **Always launch from Steam.** Running the exe directly gives `invalid or missing authentication token` (Steam isn't running, no auth).
-
-![In game](screenshots/04-ingame.png)
+## Step 8️⃣: Play 🎉
+Launch with **Play in Steam**.
+> ⚠️ **Always launch from Steam.** Running the exe directly gives `invalid or missing authentication token`.
 
 **To play later:** double-click the wrapper `.app` (in `~/Applications/Sikarugir/`) → Steam → Play.
+
+![In game](screenshots/04-ingame.png)
 
 ## 🛠 Troubleshooting FAQ
 | Problem | Fix |
@@ -206,8 +207,8 @@ Launch the game with **Play in Steam**.
 | Wrapper does nothing when opened | Quit leftover `steam` / `wine` processes in Activity Monitor, then reopen |
 | 3D scene is black, only menu/HUD shows | You're on DXVK → switch to **DXMT** |
 | `invalid / missing authentication token` | Launch from **Steam → Play**, not the exe directly |
-| "Visual C++ required / missing component" | Use the **launch option** in Step 6 to point at the Shipping exe |
-| In-game CJK text shows as □□ | Run `fix-fonts.sh` from Step 5 (adds CJK fonts) |
+| "Visual C++ required / missing component" | Use the **launch option** in Step 7 to point at the Shipping exe |
+| In-game CJK text shows as □□ | Run `fix-fonts.sh` from Step 4 |
 | Anti-cheat game won't launch | No fix (EAC/BattlEye don't work) |
 
 ---
@@ -218,4 +219,4 @@ Launch the game with **Play in Steam**.
 - Wine / Homebrew / Apple Game Porting Toolkit
 
 > 教學整理自實際在 M 系列 Mac 上跑起 MECCHA CHAMELEON 的完整過程。歡迎用 Issue 回報你成功/失敗的遊戲，一起累積相容性清單！
-> Based on actually getting MECCHA CHAMELEON running on an M-series Mac. Please open an Issue to report games that work/fail and help build a compatibility list!
+> Based on actually getting MECCHA CHAMELEON running on an M-series Mac. Open an Issue to report games that work/fail and help build a compatibility list!
