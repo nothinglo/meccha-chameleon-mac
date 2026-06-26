@@ -7,7 +7,7 @@
 # ============================================================
 set -e
 
-# 要加入 FontSubstitutes 的對應（明體類→儷宋、黑體類→儷中黑）
+# 新增的 FontSubstitutes 對應（明體類→儷宋、黑體類→儷中黑）
 SUBSFILE="$(mktemp)"
 cat > "$SUBSFILE" <<'EOF'
 "MingLiU"="Apple LiSung Light"
@@ -28,31 +28,34 @@ for app in "$HOME/Applications/Sikarugir/"*.app; do
   [ -f "$REG" ] || continue
   found=1
   name="$(basename "$app")"
+  cp "$REG" "$REG.fontbak"   # 備份
 
+  # (1) 把對話框/安裝精靈常用的字型別名直接指向 macOS 字型（解決 Steam 安裝畫面 □□）
+  #     這些 key 預設就存在，所以用替換值的方式（idempotent）
+  sed -i '' 's/"MS Shell Dlg"="[^"]*"/"MS Shell Dlg"="Apple LiGothic Medium"/' "$REG" 2>/dev/null || true
+  sed -i '' 's/"MS Shell Dlg 2"="[^"]*"/"MS Shell Dlg 2"="Apple LiGothic Medium"/' "$REG" 2>/dev/null || true
+
+  # (2) 加入中文字型對應（若還沒加過）
   if grep -q '"PMingLiU"="Apple LiSung Light"' "$REG"; then
-    echo "✓ $name 已有中文字型設定，略過"
-    continue
-  fi
-
-  orig_lines=$(wc -l < "$REG")
-  # 在 FontSubstitutes 區段標頭後，把 SUBSFILE 內容逐行插入
-  awk -v subsfile="$SUBSFILE" '
-    { print }
-    /^\[Software\\\\Microsoft\\\\Windows NT\\\\CurrentVersion\\\\FontSubstitutes\]/ {
-      while ((getline line < subsfile) > 0) print line
-      close(subsfile)
-    }
-  ' "$REG" > "$REG.tmp"
-
-  new_lines=$(wc -l < "$REG.tmp")
-  # 安全檢查：新檔行數必須 >= 原檔，否則視為失敗、不覆蓋
-  if [ "$new_lines" -ge "$orig_lines" ] && [ "$new_lines" -gt 100 ]; then
-    cp "$REG" "$REG.fontbak"          # 備份
-    mv "$REG.tmp" "$REG"
-    echo "✓ $name 中文字型已補上（備份在 system.reg.fontbak）"
+    echo "✓ $name 中文字型對應已存在（已更新對話框字型）"
   else
-    rm -f "$REG.tmp"
-    echo "⚠️ $name 處理異常，未更動（原檔保持不變）"
+    orig_lines=$(wc -l < "$REG")
+    awk -v subsfile="$SUBSFILE" '
+      { print }
+      /^\[Software\\\\Microsoft\\\\Windows NT\\\\CurrentVersion\\\\FontSubstitutes\]/ {
+        while ((getline line < subsfile) > 0) print line
+        close(subsfile)
+      }
+    ' "$REG" > "$REG.tmp"
+    new_lines=$(wc -l < "$REG.tmp")
+    if [ "$new_lines" -ge "$orig_lines" ] && [ "$new_lines" -gt 100 ]; then
+      mv "$REG.tmp" "$REG"
+      echo "✓ $name 中文字型已補上"
+    else
+      rm -f "$REG.tmp"
+      echo "⚠️ $name 處理異常，已從備份保留原檔"
+      cp "$REG.fontbak" "$REG"
+    fi
   fi
 done
 

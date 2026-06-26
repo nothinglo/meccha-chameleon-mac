@@ -67,9 +67,10 @@ curl -fsSL https://gist.githubusercontent.com/nothinglo/45eea044c3bb8fc2b6ab972e
 ## 步驟 5️⃣：安裝 Steam
 步驟 1 的腳本已把 `SteamSetup.exe` 下載到 `~/Downloads`。
 1. 在 Configure 視窗按 **Install Software** → 選 `~/Downloads/SteamSetup.exe`
-2. ⚠️ **點一下右下角 / Dock 的「藍底 wine 圖示」**（**不是酒杯**！酒杯是 Configure），Steam 安裝視窗才會跳出來
-3. 安裝視窗出現後就能操作，**一路按「下一步 / 確定」用預設值即可**（不用改任何設定）。此時 Configure 視窗可能顯示 **busy**，正常。
-4. 裝完後**過幾分鐘 Steam 會自動打開**
+2. 安裝視窗出現後就能操作，**一路按「下一步 / 確定」用預設值即可**（不用改任何設定）。此時 Configure 視窗可能顯示 **busy**，正常。
+3. 安裝過程若跳**警告（warning）是正常的**，不用擔心，繼續即可。
+4. ⚠️ 若 Steam 安裝視窗沒有跳出來，**點一下右下角 / Dock 的「藍底 wine 圖示」**（不是酒杯，酒杯是 Configure）把它叫出來。
+5. 裝完後**過幾分鐘 Steam 會自動打開**
 
 > 若 `~/Downloads` 沒有 SteamSetup.exe，可自行到 [store.steampowered.com](https://store.steampowered.com/about/) 下載。
 
@@ -170,9 +171,10 @@ It maps Windows CJK font names to macOS built-in fonts in your wrapper.
 ## Step 5️⃣: Install Steam
 The Step 1 script already downloaded `SteamSetup.exe` to `~/Downloads`.
 1. In the Configure window click **Install Software** → pick `~/Downloads/SteamSetup.exe`
-2. ⚠️ **Click the blue wine icon in the Dock / menu bar** (**not** the wine-glass — that's Configure) to bring up the Steam installer window
-3. Once it appears, **click Next / OK through the defaults** (nothing to change). The Configure window may show **busy** — that's normal.
-4. After it finishes, **Steam opens by itself in a few minutes**
+2. When the installer appears, **click Next / OK through the defaults** (nothing to change). The Configure window may show **busy** — that's normal.
+3. Any **warning during install is normal** — just continue.
+4. ⚠️ If the Steam installer window doesn't appear, **click the blue wine icon in the Dock / menu bar** (not the wine-glass — that's Configure) to bring it up.
+5. After it finishes, **Steam opens by itself in a few minutes**
 
 > If `~/Downloads` has no SteamSetup.exe, grab it from [store.steampowered.com](https://store.steampowered.com/about/).
 
