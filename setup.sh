@@ -102,7 +102,7 @@ echo "   （若還停在安裝/選檔畫面，先按 Cancel 才會回到有 Wind
 echo "   （下拉通常已有 steam.exe；沒看到就按 Browse → 按 Cmd+Shift+G 貼上完整路徑前往，例：）"
 echo "     ~/Applications/Sikarugir/MeccaChameleon.app/Contents/SharedSupport/prefix/drive_c/Program Files (x86)/Steam/steam.exe"
 echo "     （把 MeccaChameleon 換成你命名的名字）"
-echo "   （選了就自動儲存、不用按其他按鈕，關閉視窗即可；以後點兩下 wrapper.app 就會自動開 Steam，不設的話點了不會開）"
+echo "   （選了就自動儲存、不用按其他按鈕，關閉視窗即可；以後點兩下 wrapper.app 就會自動開 Steam，開啟後可能要等幾秒鐘才跳出來，不設的話點了不會開）"
 echo "6. 遊戲右鍵→內容→啟動選項貼上下面這串（含前後雙引號 \" 一起複製，玩其他遊戲換成對應路徑）："
 echo '   "C:\Program Files (x86)\Steam\steamapps\common\MECCHA CHAMELEON\Chameleon\Binaries\Win64\PenguinHotel-Win64-Shipping.exe" %command%'
 echo "7. 從 Steam 按 Play 開玩！"

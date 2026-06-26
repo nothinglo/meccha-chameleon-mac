@@ -77,7 +77,7 @@ Steam 已在上一步自動打開（**不需要再做 Test Run**）：
    - 下拉選單通常**已經有 `steam.exe`**；若沒看到，按 **Browse**（開的是 Mac 檔案視窗）→ 按 `Cmd + Shift + G` 貼上這串完整路徑前往：
      `~/Applications/Sikarugir/MeccaChameleon.app/Contents/SharedSupport/prefix/drive_c/Program Files (x86)/Steam/steam.exe`
      （把 `MeccaChameleon` 換成你步驟 2 命名的名字）
-   - 選好就生效、**會自動儲存、不用按其他按鈕**，直接關閉視窗即可。之後點兩下 `~/Applications/Sikarugir/` 裡的 wrapper `.app` 就會自動開 Steam。
+   - 選好就生效、**會自動儲存、不用按其他按鈕**，直接關閉視窗即可。之後點兩下 `~/Applications/Sikarugir/` 裡的 wrapper `.app` 就會自動開 Steam（**開啟後可能要等幾秒鐘 Steam 才會跳出來**，請稍等）。
 
 > 沒設這個的話，點 wrapper 的 `.app` 不會開 Steam（會停在安裝程式或沒反應）。
 > 若 Configure 視窗已關閉，可在 **Sikarugir Creator** 重新開啟該 wrapper 的 **Configuration** 再設。
@@ -94,7 +94,7 @@ Steam 已在上一步自動打開（**不需要再做 Test Run**）：
 從 **Steam 按 Play** 啟動遊戲。
 > ⚠️ **務必從 Steam 啟動**。直接跑 exe 會出現 `invalid or missing authentication token`。
 
-**以後要玩**：點兩下 wrapper 的 `.app`（在 `~/Applications/Sikarugir/`）→ 自動開 Steam → 按 Play。（前提：步驟 5 已把 Windows app 設成 `Steam.exe`）
+**以後要玩**：點兩下 wrapper 的 `.app`（在 `~/Applications/Sikarugir/`）→ 自動開 Steam（**等幾秒鐘才會跳出來**）→ 按 Play。（前提：步驟 5 已把 Windows app 設成 `Steam.exe`）
 
 ![遊戲畫面](screenshots/04-ingame.png)
 
@@ -186,7 +186,7 @@ Steam already opened in the previous step (**no Test Run needed**):
    - The dropdown usually **already lists `steam.exe`**; if not, click **Browse** (a Mac file dialog) → press `Cmd + Shift + G` and paste this full path:
      `~/Applications/Sikarugir/MeccaChameleon.app/Contents/SharedSupport/prefix/drive_c/Program Files (x86)/Steam/steam.exe`
      (replace `MeccaChameleon` with the name you chose in Step 2)
-   - It **saves automatically — no extra button to press**, just close the window. After this, double-clicking the wrapper `.app` in `~/Applications/Sikarugir/` opens Steam directly.
+   - It **saves automatically — no extra button to press**, just close the window. After this, double-clicking the wrapper `.app` in `~/Applications/Sikarugir/` opens Steam directly (**it may take a few seconds to appear** — be patient).
 
 > Without this, double-clicking the wrapper `.app` won't open Steam (it stalls on the installer or does nothing).
 > If the Configure window is already closed, reopen the wrapper's **Configuration** from **Sikarugir Creator**.
@@ -203,7 +203,7 @@ Right-click the game → **Properties → Launch Options**, paste the path to th
 Launch with **Play in Steam**.
 > ⚠️ **Always launch from Steam.** Running the exe directly gives `invalid or missing authentication token`.
 
-**To play later:** double-click the wrapper `.app` (in `~/Applications/Sikarugir/`) → Steam opens → Play. (Requires Step 5's "Windows app = `Steam.exe`".)
+**To play later:** double-click the wrapper `.app` (in `~/Applications/Sikarugir/`) → Steam opens (**may take a few seconds**) → Play. (Requires Step 5's "Windows app = `Steam.exe`".)
 
 ![In game](screenshots/04-ingame.png)
 
