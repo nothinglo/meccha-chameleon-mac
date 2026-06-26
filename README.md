@@ -44,6 +44,7 @@ curl -fsSL https://raw.githubusercontent.com/nothinglo/meccha-chameleon-mac/main
 4. 建立完成後會跳一個小視窗 → 按 **Launch it** 打開 Configure 設定視窗
 
 > ⏱ 按 Create 後建立 wrapper **約需 5 分鐘**、畫面會轉圈圈，請耐心等。
+> 若**超過 5 分鐘還沒跳出 `Launch it`**，可關掉 Sikarugir Creator、重開再 Create 一次（實測偶爾會卡住）。
 
 ![建立 wrapper](screenshots/01-create.png)
 
@@ -95,6 +96,7 @@ Steam 已在上一步自動打開（**不需要再做 Test Run**）：
 
 ## 步驟 7️⃣：開玩 🎉
 從 **Steam 按 Play** 啟動遊戲。
+> 💡 **第一次按 Play 會等比較久（約 3 分鐘）遊戲才會出現**，請耐心等、不要重複點。
 > ⚠️ **務必從 Steam 啟動**。直接跑 exe 會出現 `invalid or missing authentication token`。
 
 **以後要玩**：點兩下 wrapper 的 `.app`（在 `~/Applications/Sikarugir/`）→ 自動開 Steam（**等幾秒鐘才會跳出來**）→ 按 Play。（前提：步驟 5 已把 Windows app 設成 `Steam.exe`）
@@ -154,6 +156,7 @@ In **Sikarugir Creator**:
 4. When it finishes, a small dialog appears → click **Launch it** to open the Configure window
 
 > ⏱ After Create, building the wrapper takes **~5 minutes** (the UI spins) — be patient.
+> If **no `Launch it` appears after 5 min**, quit Sikarugir Creator, reopen it, and Create again (it occasionally gets stuck).
 
 ![Create wrapper](screenshots/01-create.png)
 
@@ -205,6 +208,7 @@ Right-click the game → **Properties → Launch Options**, paste the path to th
 
 ## Step 7️⃣: Play 🎉
 Launch with **Play in Steam**.
+> 💡 **The first Play takes a while (~3 min) before the game appears** — be patient, don't click repeatedly.
 > ⚠️ **Always launch from Steam.** Running the exe directly gives `invalid or missing authentication token`.
 
 **To play later:** double-click the wrapper `.app` (in `~/Applications/Sikarugir/`) → Steam opens (**may take a few seconds**) → Play. (Requires Step 5's "Windows app = `Steam.exe`".)
