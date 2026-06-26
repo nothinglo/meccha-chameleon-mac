@@ -63,6 +63,14 @@ brew tap sikarugir-app/sikarugir 2>/dev/null || true
 brew trust sikarugir-app/sikarugir 2>/dev/null || true
 HOMEBREW_CASK_OPTS="--no-quarantine" brew install --cask sikarugir-app/sikarugir/sikarugir
 
+# 4) 預先下載 Steam 安裝檔到 ~/Downloads（之後步驟 3「Choose Setup Executable」要用）
+echo "→ 下載 Steam 安裝檔到 ~/Downloads ..."
+if curl -fsSL "https://cdn.cloudflare.steamstatic.com/client/installer/SteamSetup.exe" -o "$HOME/Downloads/SteamSetup.exe"; then
+  echo "✓ 已下載：~/Downloads/SteamSetup.exe"
+else
+  echo "（Steam 下載失敗，請手動到 store.steampowered.com 下載 SteamSetup.exe 放到 ~/Downloads）"
+fi
+
 echo ""
 echo "🎉 工具安裝完成！正在自動開啟 Sikarugir Creator..."
 open -a "Sikarugir Creator" 2>/dev/null || open "/Applications/Sikarugir Creator.app" 2>/dev/null || \
@@ -79,8 +87,9 @@ echo ""
 echo "----------------------------------------------"
 echo "接下來在 Sikarugir Creator 視窗操作（無法腳本化）："
 echo "1. Download Template → Change 選引擎【WS12WineSikarugir10.0】→ Create → 命名（例如 MeccaChameleon）"
+echo "   （按 Create 後會建立 wrapper，約需 5 分鐘、畫面會轉圈圈，請耐心等）"
 echo "2. 跳出 Configure 視窗後，勾選【DXMT (DirectX to Metal)】"
-echo "3. Install Software → 選 SteamSetup.exe 裝 Steam"
+echo "3. Install Software → Choose Setup Executable → 選【~/Downloads/SteamSetup.exe】（腳本已幫你下載好）"
 echo "4. Windows app 設成 Steam.exe → Test Run → 登入 → 安裝 MECCHA CHAMELEON"
 echo "5. 遊戲右鍵→內容→啟動選項貼上（玩其他遊戲請換成該遊戲的對應路徑）："
 echo '   "C:\Program Files (x86)\Steam\steamapps\common\MECCHA CHAMELEON\Chameleon\Binaries\Win64\PenguinHotel-Win64-Shipping.exe" %command%'

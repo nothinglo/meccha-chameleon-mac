@@ -45,6 +45,7 @@ bash setup.sh
 2. 按 **Change** 選引擎 → **務必選 `WS12WineSikarugir10.0`**（Wine 10）
 3. 按 **Create** → 命名（例如 `MeccaChameleon`）
 
+> ⏱ 按 Create 後建立 wrapper **約需 5 分鐘**、畫面會轉圈圈，請耐心等。
 > ⚠️ **引擎一定要選 Wine 10**。舊版（如 GPTK 的 Wine 7.7）跑不動現在的 Steam 登入介面。
 
 ![建立 wrapper](screenshots/01-create.png)
@@ -57,8 +58,9 @@ bash setup.sh
 ![勾選 DXMT](screenshots/02-dxmt.png)
 
 ## 步驟 4️⃣：安裝 Steam
-1. 到 [store.steampowered.com](https://store.steampowered.com/about/) 下載 `SteamSetup.exe`
-2. 在 Configure 視窗按 **Install Software** → 選那個 `SteamSetup.exe` → 裝進 wrapper
+步驟 1 的腳本已把 `SteamSetup.exe` 下載到 `~/Downloads`。
+在 Configure 視窗按 **Install Software → Choose Setup Executable** → 選 `~/Downloads/SteamSetup.exe` → 裝進 wrapper。
+（若檔案不在，可自行到 [store.steampowered.com](https://store.steampowered.com/about/) 下載）
 
 ## 步驟 5️⃣：登入 Steam、安裝遊戲
 1. 把「**Windows app**」欄位設成 Steam.exe（或用 Browse 找到它）
@@ -134,6 +136,7 @@ Open **Sikarugir Creator** (Launchpad / `~/Applications`):
 2. Click **Change** to pick an engine → **be sure to choose `WS12WineSikarugir10.0`** (Wine 10)
 3. Click **Create** → name it (e.g. `MeccaChameleon`)
 
+> ⏱ After you click Create, building the wrapper takes **about 5 minutes** (the UI will spin) — be patient.
 > ⚠️ **You must pick Wine 10.** Older engines (e.g. GPTK's Wine 7.7) can't run the current Steam login UI.
 
 ![Create wrapper](screenshots/01-create.png)
@@ -147,8 +150,9 @@ After creating, a **Configure** window opens → tick
 ![Enable DXMT](screenshots/02-dxmt.png)
 
 ## Step 4️⃣: Install Steam
-1. Download `SteamSetup.exe` from [store.steampowered.com](https://store.steampowered.com/about/)
-2. In the Configure window click **Install Software** → choose that `SteamSetup.exe` → install Steam into the wrapper
+The Step 1 script already downloaded `SteamSetup.exe` to `~/Downloads`.
+In the Configure window click **Install Software → Choose Setup Executable** → pick `~/Downloads/SteamSetup.exe` → install Steam into the wrapper.
+(If it's missing, grab it from [store.steampowered.com](https://store.steampowered.com/about/))
 
 ## Step 5️⃣: Log in to Steam, install the game
 1. Set the **Windows app** field to Steam.exe (or use Browse)
