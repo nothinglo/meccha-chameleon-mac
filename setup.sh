@@ -81,7 +81,7 @@ mkdir -p "$HOME/Applications/Sikarugir"
 open "$HOME/Applications/Sikarugir" 2>/dev/null || true
 echo "📂 已開啟 Finder 到「~/Applications/Sikarugir」"
 echo "    你建立的遊戲（wrapper .app）之後會出現在這個資料夾，"
-echo "    以後要玩就到這裡點兩下它即可。"
+echo "    把 Windows app 設成 Steam.exe 後（見下方步驟 5），到這裡點兩下它就會開 Steam。"
 
 echo ""
 echo "----------------------------------------------"
@@ -97,8 +97,10 @@ echo "   若 Steam 安裝視窗沒跳出來，點【右下角/Dock 的『藍底 
 echo "   (Steam 安裝/更新的進度小視窗可能有少數 □□，那是 Steam 暫時畫面、不影響安裝、裝完就消失，可忽略)"
 echo "   裝完過幾分鐘 Steam 會自動打開"
 echo "4. Steam 打開後 → 登入 → 安裝你的遊戲（例如 MECCHA CHAMELEON）"
-echo "5. 遊戲右鍵→內容→啟動選項貼上（玩其他遊戲請換成該遊戲的對應路徑）："
+echo "5. （設定日後啟動）回 Configure 視窗，把【Windows app（主程式）】設成 Steam.exe"
+echo "   → 以後點兩下 ~/Applications/Sikarugir 裡的 wrapper.app 就會自動開 Steam（不設的話點了不會開）"
+echo "6. 遊戲右鍵→內容→啟動選項貼上下面這串（含前後雙引號 \" 一起複製，玩其他遊戲換成對應路徑）："
 echo '   "C:\Program Files (x86)\Steam\steamapps\common\MECCHA CHAMELEON\Chameleon\Binaries\Win64\PenguinHotel-Win64-Shipping.exe" %command%'
-echo "6. 從 Steam 按 Play 開玩！"
+echo "7. 從 Steam 按 Play 開玩！"
 echo "----------------------------------------------"
-echo "⚠️  引擎一定選 Wine 10、渲染一定勾 DXMT（不要 DXVK，會黑畫面）"
+echo "⚠️  渲染一定勾 DXMT（不要 DXVK，會黑畫面）"
