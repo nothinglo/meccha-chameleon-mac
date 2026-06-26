@@ -59,13 +59,24 @@ bash setup.sh
 
 ## 步驟 4️⃣：安裝 Steam
 步驟 1 的腳本已把 `SteamSetup.exe` 下載到 `~/Downloads`。
-在 Configure 視窗按 **Install Software → Choose Setup Executable** → 選 `~/Downloads/SteamSetup.exe` → 裝進 wrapper。
-（若檔案不在，可自行到 [store.steampowered.com](https://store.steampowered.com/about/) 下載）
+1. 在 Configure 視窗按 **Install Software** → 選 `~/Downloads/SteamSetup.exe`
+2. Steam 安裝視窗會出現，**一路按「下一步 / 確定」用預設值即可**（不用改任何設定）
+3. ⚠️ 若沒看到安裝視窗，**點一下右下角 / 選單列的 wine 🍷 酒杯圖示**，視窗就會跳出來
+4. 裝完後**過幾分鐘 Steam 會自動打開**（若它問你要選哪個主程式，就選 `Steam.exe`）
 
-## 步驟 5️⃣：登入 Steam、安裝遊戲
-1. 把「**Windows app**」欄位設成 Steam.exe（或用 Browse 找到它）
-2. 按 **Test Run** → Steam 開啟
-3. **登入** → 在媒體庫**安裝你的遊戲**
+> 若 `~/Downloads` 沒有 SteamSetup.exe，可自行到 [store.steampowered.com](https://store.steampowered.com/about/) 下載。
+
+## 步驟 5️⃣：登入 Steam、安裝遊戲、補中文字型
+Steam 已在上一步自動打開（**不需要再做 Test Run**）：
+1. **登入**你的 Steam 帳號
+2. 在媒體庫**安裝你的遊戲**（例如 MECCHA CHAMELEON）
+3. **（重要）補中文字型** — 不然遊戲內中文會變方框 □□。先把遊戲/Steam **完全關閉**，再回終端機跑：
+   ```bash
+   curl -fsSL https://gist.githubusercontent.com/nothinglo/45eea044c3bb8fc2b6ab972e696180ac/raw/fix-fonts.sh -o fix-fonts.sh && bash fix-fonts.sh
+   ```
+   它會自動把 Windows 中文字型對應到 macOS 內建繁中字型，套用到你的 wrapper。
+
+> 之後若點 wrapper 沒自動開 Steam，到 Configuration 把「Windows app」設成 `Steam.exe` 即可。
 
 ![Steam 登入](screenshots/03-steam.png)
 
@@ -93,7 +104,7 @@ bash setup.sh
 | 3D 主畫面全黑、只剩選單/HUD | 你用到 DXVK 了 → 改用 **DXMT** |
 | `invalid / missing authentication token` | 一定要**從 Steam 按 Play** 啟動，不能直接跑 exe |
 | 跳「需要 Visual C++ / 找不到元件」 | 用步驟 6 的**啟動參數**直接指向 Shipping exe |
-| 遊戲內中文變 □□ | 進階：在 wrapper 裡做字型替換 |
+| 遊戲內中文變 □□ | 跑步驟 5 的 `fix-fonts.sh`（補中文字型）|
 | 反作弊遊戲打不開 | 目前無解（EAC/BattlEye 跑不了）|
 
 ---
@@ -151,13 +162,24 @@ After creating, a **Configure** window opens → tick
 
 ## Step 4️⃣: Install Steam
 The Step 1 script already downloaded `SteamSetup.exe` to `~/Downloads`.
-In the Configure window click **Install Software → Choose Setup Executable** → pick `~/Downloads/SteamSetup.exe` → install Steam into the wrapper.
-(If it's missing, grab it from [store.steampowered.com](https://store.steampowered.com/about/))
+1. In the Configure window click **Install Software** → pick `~/Downloads/SteamSetup.exe`
+2. The Steam installer window appears — **just click Next / OK through the defaults** (no settings to change)
+3. ⚠️ If you don't see the installer window, **click the wine 🍷 glass icon in the Dock / menu bar** and it'll pop up
+4. After it finishes, **Steam opens by itself in a few minutes** (if it asks which executable to use, pick `Steam.exe`)
 
-## Step 5️⃣: Log in to Steam, install the game
-1. Set the **Windows app** field to Steam.exe (or use Browse)
-2. Click **Test Run** → Steam opens
-3. **Log in** → install **your game** from the library
+> If `~/Downloads` has no SteamSetup.exe, grab it from [store.steampowered.com](https://store.steampowered.com/about/).
+
+## Step 5️⃣: Log in, install the game, add CJK fonts
+Steam already opened in the previous step (**no Test Run needed**):
+1. **Log in** to your Steam account
+2. **Install your game** from the library (e.g. MECCHA CHAMELEON)
+3. **(Important) Add CJK fonts** — otherwise in-game CJK text shows as □□. Fully quit the game/Steam first, then run in Terminal:
+   ```bash
+   curl -fsSL https://gist.githubusercontent.com/nothinglo/45eea044c3bb8fc2b6ab972e696180ac/raw/fix-fonts.sh -o fix-fonts.sh && bash fix-fonts.sh
+   ```
+   It maps Windows CJK font names to macOS built-in fonts in your wrapper.
+
+> If double-clicking the wrapper later doesn't open Steam, set "Windows app" to `Steam.exe` in Configuration.
 
 ![Steam login](screenshots/03-steam.png)
 
@@ -185,7 +207,7 @@ Launch the game with **Play in Steam**.
 | 3D scene is black, only menu/HUD shows | You're on DXVK → switch to **DXMT** |
 | `invalid / missing authentication token` | Launch from **Steam → Play**, not the exe directly |
 | "Visual C++ required / missing component" | Use the **launch option** in Step 6 to point at the Shipping exe |
-| In-game CJK text shows as □□ | Advanced: do font substitution inside the wrapper |
+| In-game CJK text shows as □□ | Run `fix-fonts.sh` from Step 5 (adds CJK fonts) |
 | Anti-cheat game won't launch | No fix (EAC/BattlEye don't work) |
 
 ---
