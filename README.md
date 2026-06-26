@@ -30,8 +30,7 @@ Uses **MECCHA CHAMELEON** as the worked example, but the method works for most W
 ## 步驟 1️⃣：一鍵安裝環境（Rosetta + Homebrew + Sikarugir）
 打開「**終端機**（Terminal）」，貼上：
 ```bash
-curl -fsSL https://raw.githubusercontent.com/nothinglo/meccha-chameleon-mac/main/setup.sh -o setup.sh
-bash setup.sh
+curl -fsSL https://raw.githubusercontent.com/nothinglo/meccha-chameleon-mac/main/setup.sh -o setup.sh && bash setup.sh
 ```
 - 約需 **10–15 分鐘**，過程只會在一開始問你一次開機密碼。
 - 腳本只安裝工具（Rosetta 2 / Homebrew / Sikarugir Creator）+ 順便下載 Steam 安裝檔，**不會碰你的個人檔案**，可重複執行。
@@ -141,8 +140,7 @@ Run Windows-only Steam games on an **Apple Silicon Mac (M-series)** with **100% 
 ## Step 1️⃣: One-shot environment setup (Rosetta + Homebrew + Sikarugir)
 Open **Terminal** and paste:
 ```bash
-curl -fsSL https://raw.githubusercontent.com/nothinglo/meccha-chameleon-mac/main/setup.sh -o setup.sh
-bash setup.sh
+curl -fsSL https://raw.githubusercontent.com/nothinglo/meccha-chameleon-mac/main/setup.sh -o setup.sh && bash setup.sh
 ```
 - Takes about **10–15 minutes**; it asks for your login password once at the start.
 - Installs only tools (Rosetta 2 / Homebrew / Sikarugir Creator) and downloads the Steam installer; it **doesn't touch your personal files** and is safe to re-run.
