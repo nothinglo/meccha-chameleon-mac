@@ -74,8 +74,9 @@ Steam 已在上一步自動打開（**不需要再做 Test Run**）：
 2. 在媒體庫**安裝你的遊戲**（例如 MECCHA CHAMELEON）
 3. **（重要，設定日後啟動）** 回 **Configure 視窗** → 在 **Windows app（主程式）** 的下拉選單選 `steam.exe`。
    - 若 Configure 還停在安裝/選檔的畫面，**先按 `Cancel`** 才會回到有「Windows app」下拉選單的主畫面。
-   - 下拉選單通常**已經有 `steam.exe`**；若沒看到，按 **Browse** 選這個檔（Browse 開的是 Mac 檔案視窗，請走完整路徑）：
-     `~/Applications/Sikarugir/<你的wrapper>.app/Contents/SharedSupport/prefix/drive_c/Program Files (x86)/Steam/steam.exe`
+   - 下拉選單通常**已經有 `steam.exe`**；若沒看到，按 **Browse**（開的是 Mac 檔案視窗）→ 按 `Cmd + Shift + G` 貼上這串完整路徑前往：
+     `~/Applications/Sikarugir/MeccaChameleon.app/Contents/SharedSupport/prefix/drive_c/Program Files (x86)/Steam/steam.exe`
+     （把 `MeccaChameleon` 換成你步驟 2 命名的名字）
    - 選好就生效、**會自動儲存、不用按其他按鈕**，直接關閉視窗即可。之後點兩下 `~/Applications/Sikarugir/` 裡的 wrapper `.app` 就會自動開 Steam。
 
 > 沒設這個的話，點 wrapper 的 `.app` 不會開 Steam（會停在安裝程式或沒反應）。
@@ -182,8 +183,9 @@ Steam already opened in the previous step (**no Test Run needed**):
 2. **Install your game** from the library (e.g. MECCHA CHAMELEON)
 3. **(Important — sets up future launching)** Back in the **Configure window**, pick `steam.exe` from the **Windows app** dropdown.
    - If Configure is still on the install / file-picker screen, **click `Cancel` first** to get back to the main screen that has the "Windows app" dropdown.
-   - The dropdown usually **already lists `steam.exe`**; if not, click **Browse** (it opens a Mac file dialog — use the full path) and choose:
-     `~/Applications/Sikarugir/<your-wrapper>.app/Contents/SharedSupport/prefix/drive_c/Program Files (x86)/Steam/steam.exe`
+   - The dropdown usually **already lists `steam.exe`**; if not, click **Browse** (a Mac file dialog) → press `Cmd + Shift + G` and paste this full path:
+     `~/Applications/Sikarugir/MeccaChameleon.app/Contents/SharedSupport/prefix/drive_c/Program Files (x86)/Steam/steam.exe`
+     (replace `MeccaChameleon` with the name you chose in Step 2)
    - It **saves automatically — no extra button to press**, just close the window. After this, double-clicking the wrapper `.app` in `~/Applications/Sikarugir/` opens Steam directly.
 
 > Without this, double-clicking the wrapper `.app` won't open Steam (it stalls on the installer or does nothing).
