@@ -30,7 +30,7 @@ Uses **MECCHA CHAMELEON** as the worked example, but the method works for most W
 ## 步驟 1️⃣：一鍵安裝環境（Rosetta + Homebrew + Sikarugir）
 打開「**終端機**（Terminal）」，貼上：
 ```bash
-curl -fsSL https://gist.githubusercontent.com/nothinglo/45eea044c3bb8fc2b6ab972e696180ac/raw/setup-meccha.sh -o setup.sh
+curl -fsSL https://raw.githubusercontent.com/nothinglo/meccha-chameleon-mac/main/setup.sh -o setup.sh
 bash setup.sh
 ```
 - 約需 **10–15 分鐘**，過程只會在一開始問你一次開機密碼。
@@ -112,7 +112,7 @@ Steam 已在上一步自動打開（**不需要再做 Test Run**）：
 ## 🧹 不想玩了？一鍵清除
 移除本教學裝/載的東西（會**保留** Homebrew、Rosetta 等系統共用工具）：
 ```bash
-curl -fsSL https://gist.githubusercontent.com/nothinglo/45eea044c3bb8fc2b6ab972e696180ac/raw/cleanup.sh -o cleanup.sh && bash cleanup.sh
+curl -fsSL https://raw.githubusercontent.com/nothinglo/meccha-chameleon-mac/main/cleanup.sh -o cleanup.sh && bash cleanup.sh
 ```
 會移除：遊戲 wrapper（含 Steam 登入與已下載遊戲）、Sikarugir Creator、下載的 SteamSetup.exe。執行時需輸入 `yes` 確認。
 
@@ -141,7 +141,7 @@ Run Windows-only Steam games on an **Apple Silicon Mac (M-series)** with **100% 
 ## Step 1️⃣: One-shot environment setup (Rosetta + Homebrew + Sikarugir)
 Open **Terminal** and paste:
 ```bash
-curl -fsSL https://gist.githubusercontent.com/nothinglo/45eea044c3bb8fc2b6ab972e696180ac/raw/setup-meccha.sh -o setup.sh
+curl -fsSL https://raw.githubusercontent.com/nothinglo/meccha-chameleon-mac/main/setup.sh -o setup.sh
 bash setup.sh
 ```
 - Takes about **10–15 minutes**; it asks for your login password once at the start.
@@ -223,7 +223,7 @@ Launch with **Play in Steam**.
 ## 🧹 Uninstall / clean up
 Remove what this guide installed/downloaded (**keeps** shared tools like Homebrew & Rosetta):
 ```bash
-curl -fsSL https://gist.githubusercontent.com/nothinglo/45eea044c3bb8fc2b6ab972e696180ac/raw/cleanup.sh -o cleanup.sh && bash cleanup.sh
+curl -fsSL https://raw.githubusercontent.com/nothinglo/meccha-chameleon-mac/main/cleanup.sh -o cleanup.sh && bash cleanup.sh
 ```
 It removes: game wrappers (incl. your Steam login & downloaded games), Sikarugir Creator, and the downloaded SteamSetup.exe. You'll type `yes` to confirm.
 
