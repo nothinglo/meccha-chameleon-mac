@@ -68,6 +68,13 @@ echo "🎉 工具安裝完成！正在自動開啟 Sikarugir Creator..."
 open -a "Sikarugir Creator" 2>/dev/null || open "/Applications/Sikarugir Creator.app" 2>/dev/null || \
   echo "（若沒自動開，請到 啟動台 或 /Applications 開啟「Sikarugir Creator」）"
 
+# 開啟 Finder 到「wrapper 之後會出現、日後啟動遊戲」的資料夾
+mkdir -p "$HOME/Applications/Sikarugir"
+open "$HOME/Applications/Sikarugir" 2>/dev/null || true
+echo "📂 已開啟 Finder 到「~/Applications/Sikarugir」"
+echo "    你建立的遊戲（wrapper .app）之後會出現在這個資料夾，"
+echo "    以後要玩就到這裡點兩下它即可。"
+
 echo ""
 echo "----------------------------------------------"
 echo "接下來在 Sikarugir Creator 視窗操作（無法腳本化）："
