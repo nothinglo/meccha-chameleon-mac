@@ -43,7 +43,7 @@ bash setup.sh
 打開「**Sikarugir Creator**」（在啟動台 / `~/Applications`）：
 1. 按 **Download Template**
 2. 按 **Change** 選引擎 → **務必選 `WS12WineSikarugir10.0`**（Wine 10）
-3. 按 **Create** → 命名（例如遊戲名）
+3. 按 **Create** → 命名（例如 `MeccaChameleon`）
 
 > ⚠️ **引擎一定要選 Wine 10**。舊版（如 GPTK 的 Wine 7.7）跑不動現在的 Steam 登入介面。
 
@@ -132,7 +132,7 @@ bash setup.sh
 Open **Sikarugir Creator** (Launchpad / `~/Applications`):
 1. Click **Download Template**
 2. Click **Change** to pick an engine → **be sure to choose `WS12WineSikarugir10.0`** (Wine 10)
-3. Click **Create** → name it (e.g. the game's name)
+3. Click **Create** → name it (e.g. `MeccaChameleon`)
 
 > ⚠️ **You must pick Wine 10.** Older engines (e.g. GPTK's Wine 7.7) can't run the current Steam login UI.
 
