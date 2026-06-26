@@ -71,12 +71,12 @@ open -a "Sikarugir Creator" 2>/dev/null || open "/Applications/Sikarugir Creator
 echo ""
 echo "----------------------------------------------"
 echo "接下來在 Sikarugir Creator 視窗操作（無法腳本化）："
-echo "1. Download Template → Change 選引擎【WS12WineSikarugir10.0】→ Create 命名"
+echo "1. Download Template → Change 選引擎【WS12WineSikarugir10.0】→ Create → 命名（例如 MeccaChameleon）"
 echo "2. 跳出 Configure 視窗後，勾選【DXMT (DirectX to Metal)】"
 echo "3. Install Software → 選 SteamSetup.exe 裝 Steam"
-echo "4. Windows app 設成 Steam.exe → Test Run → 登入 → 裝遊戲"
-echo "5. 遊戲右鍵→內容→啟動選項貼（路徑依遊戲不同）："
-echo '   "C:\Program Files (x86)\Steam\steamapps\common\<遊戲>\...\Binaries\Win64\xxx-Shipping.exe" %command%'
+echo "4. Windows app 設成 Steam.exe → Test Run → 登入 → 安裝 MECCHA CHAMELEON"
+echo "5. 遊戲右鍵→內容→啟動選項貼上（玩其他遊戲請換成該遊戲的對應路徑）："
+echo '   "C:\Program Files (x86)\Steam\steamapps\common\MECCHA CHAMELEON\Chameleon\Binaries\Win64\PenguinHotel-Win64-Shipping.exe" %command%'
 echo "6. 從 Steam 按 Play 開玩！"
 echo "----------------------------------------------"
-echo "⚠️ 引擎一定選 Wine 10、渲染一定勾 DXMT（不要 DXVK，會黑畫面）"
+echo "⚠️  引擎一定選 Wine 10、渲染一定勾 DXMT（不要 DXVK，會黑畫面）"
