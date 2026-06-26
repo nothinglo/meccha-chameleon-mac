@@ -5,6 +5,7 @@
 #    ① 所有遊戲 wrapper（~/Applications/Sikarugir 內，含 Steam 登入與已下載的遊戲）
 #    ② Sikarugir Creator（Homebrew cask）
 #    ③ 下載的 Steam 安裝檔（~/Downloads/SteamSetup.exe）
+#    ④ 模板/引擎快取（~/Library/Application Support/Sikarugir，約數百 MB）
 #  不會動：Homebrew、Rosetta 2（系統共用工具；如真要移除見最後說明）
 #  用法：curl -fsSL <url>/cleanup.sh -o cleanup.sh && bash cleanup.sh
 # ============================================================
@@ -15,6 +16,7 @@ echo "----------------------------------------------"
 
 WRAPPERS="$HOME/Applications/Sikarugir"
 STEAMSETUP="$HOME/Downloads/SteamSetup.exe"
+SUPPORT="$HOME/Library/Application Support/Sikarugir"
 
 echo "將移除："
 if [ -d "$WRAPPERS" ]; then
@@ -26,6 +28,12 @@ else
 fi
 echo "  ② Sikarugir Creator（Homebrew cask）"
 if [ -f "$STEAMSETUP" ]; then echo "  ③ $STEAMSETUP"; else echo "  ③（找不到 SteamSetup.exe，略過）"; fi
+if [ -d "$SUPPORT" ]; then
+  sz4=$(du -sh "$SUPPORT" 2>/dev/null | cut -f1)
+  echo "  ④ 模板/引擎快取：$SUPPORT （約 ${sz4:-?}）"
+else
+  echo "  ④（找不到模板/引擎快取，略過）"
+fi
 echo "----------------------------------------------"
 echo "不會移除：Homebrew、Rosetta 2（系統共用工具）。"
 echo ""
@@ -52,6 +60,8 @@ rm -rf "/Applications/Sikarugir Creator.app" 2>/dev/null || true
 rm -rf "$HOME/Applications/Sikarugir Creator.app" 2>/dev/null || true
 # ③ SteamSetup.exe
 if [ -f "$STEAMSETUP" ]; then rm -f "$STEAMSETUP" && echo "✓ 已移除 SteamSetup.exe"; fi
+# ④ 模板/引擎快取
+if [ -d "$SUPPORT" ]; then rm -rf "$SUPPORT" && echo "✓ 已移除模板/引擎快取"; fi
 
 echo ""
 echo "🎉 清除完成！"
